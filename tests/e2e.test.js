@@ -2,7 +2,7 @@
 const path = require('path');
 const { chromium } = require(process.env.PW || '/tmp/pwtest/node_modules/playwright-core');
 const BASE = process.env.BASE || 'http://127.0.0.1:8765/';
-const OUT = path.join(__dirname, '..');
+const OUT = process.env.OUT || path.join(__dirname, '..');
 const res = []; let fail = 0;
 function ok(name, cond, info) { res.push((cond ? 'PASS  ' : 'FAIL  ') + name + (info ? '\n      → ' + info : '')); if (!cond) fail++; }
 (async () => {
